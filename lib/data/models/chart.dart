@@ -1,4 +1,6 @@
-class CandleStick {
+import 'package:equatable/equatable.dart';
+
+class CandleStick extends Equatable {
   final double? low;
   final String? date;
   final double? open;
@@ -6,7 +8,7 @@ class CandleStick {
   final double? close;
   final double? value;
 
-  CandleStick({
+  const CandleStick({
     this.low,
     this.date,
     this.open,
@@ -16,13 +18,13 @@ class CandleStick {
   });
 
   factory CandleStick.fromJson(Map<String, dynamic> j) => CandleStick(
-    low: j['value'],
-    open: j['value'],
-    high: j['value'],
-    close: j['value'],
-    value: j['value'],
-    date: j['timestamp'],
-  );
+        low: j['value'],
+        open: j['value'],
+        high: j['value'],
+        close: j['value'],
+        value: j['value'],
+        date: j['timestamp'],
+      );
 
   @override
   String toString() {
@@ -35,11 +37,17 @@ class CandleStick {
         'close: $close, '
         '}';
   }
+
+  @override
+  List<Object?> get props => [low, date, open, high, close, value];
 }
 
-class DataPoint {
+class DataPoint extends Equatable {
   final String x;
   final double y;
 
-  DataPoint(this.x, this.y);
+  const DataPoint(this.x, this.y);
+
+  @override
+  List<Object?> get props => [x, y];
 }

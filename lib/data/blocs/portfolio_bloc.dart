@@ -67,9 +67,7 @@ class PortfolioBloc extends Bloc<PortfolioEvent, PortfolioState> {
   }
 
   List<DataPoint> convertToDataPoints(List<CandleStick> list) {
-    return list
-        .map((time) => DataPoint(time.date ?? '', time.value ?? 0))
-        .toList();
+    return list.map((time) => DataPoint(time.date ?? '', time.value ?? 0)).toList();
   }
 
   List<DataPoint> getDataPoints() {
